@@ -1,0 +1,10 @@
+---
+description: assigning opacity
+globs: 
+alwaysApply: false
+---
+
+# Your rule content
+
+- Don't use the withOpacity method
+- Instead use withValues

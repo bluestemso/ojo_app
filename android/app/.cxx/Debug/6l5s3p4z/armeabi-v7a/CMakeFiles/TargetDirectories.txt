@@ -1,0 +1,2 @@
+C:/src/ojo_app/android/app/.cxx/Debug/6l5s3p4z/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/src/ojo_app/android/app/.cxx/Debug/6l5s3p4z/armeabi-v7a/CMakeFiles/rebuild_cache.dir
