@@ -1,8 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:ojo_app/screens/timer_screen.dart';
+import 'package:rive/rive.dart' as rive;
 
-class StartScreen extends StatelessWidget {
+class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
+
+  @override
+  State<StartScreen> createState() => _StartScreenState();
+}
+
+class _StartScreenState extends State<StartScreen> {
+  rive.RiveAnimationController? _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = rive.SimpleAnimation('blink');
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +43,19 @@ class StartScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.visibility_rounded, size: 80, color: Theme.of(context).colorScheme.primary,),
-                      Text('j', style: Theme.of(context).textTheme.displayLarge?.copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer),),
-                      Icon(Icons.visibility_rounded, size: 80, color: Theme.of(context).colorScheme.primary,),
-                    ],
-                  ),
+                  Text('ojo', style: Theme.of(context).textTheme.displayLarge?.copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer),),
                   const SizedBox(height: 20),
                   Text('take care of your eyes', style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer),),
                   const SizedBox(height: 20),
+                  Container(
+                    width: 150,
+                    height: 150,
+                    child: rive.RiveAnimation.asset(
+                      'assets/eyeBlink.riv',
+                      fit: BoxFit.cover,
+                      controllers: [_controller!],
+                    ),
+                  ),
                   const SizedBox(height: 20),
                   OutlinedButton(
                     style: OutlinedButton.styleFrom(
@@ -47,7 +69,7 @@ class StartScreen extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => TimerScreen()),
                       );
                     },
-                  )
+                  ),
                 ],
                   ),
             )),
