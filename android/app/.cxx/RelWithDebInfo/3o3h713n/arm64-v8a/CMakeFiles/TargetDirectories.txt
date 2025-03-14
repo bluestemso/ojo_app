@@ -1,0 +1,2 @@
+/Users/tschaack/Developer/localProjects/ojo_app/android/app/.cxx/RelWithDebInfo/3o3h713n/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/tschaack/Developer/localProjects/ojo_app/android/app/.cxx/RelWithDebInfo/3o3h713n/arm64-v8a/CMakeFiles/rebuild_cache.dir

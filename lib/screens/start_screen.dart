@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:ojo_app/screens/timer_screen.dart';
+import 'package:ojo_app/providers/timer_provider.dart';
 import 'package:rive/rive.dart' as rive;
 
 class StartScreen extends StatefulWidget {
@@ -64,14 +66,15 @@ class _StartScreenState extends State<StartScreen> {
                     ),
                     child: Text('Start', style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Theme.of(context).colorScheme.primaryContainer),),
                     onPressed: () {
+                      context.read<TimerProvider>().startWork();
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => TimerScreen()),
+                        MaterialPageRoute(builder: (context) => const TimerScreen()),
                       );
                     },
                   ),
                 ],
-                  ),
+                ),
             )),
       ));
   }
