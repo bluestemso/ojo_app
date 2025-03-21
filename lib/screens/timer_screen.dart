@@ -16,7 +16,6 @@ class _TimerScreenState extends State<TimerScreen> {
   @override
   void initState() {
     super.initState();
-    _startTimer();
     _showFirstTimeModal();
   }
 
@@ -33,10 +32,10 @@ class _TimerScreenState extends State<TimerScreen> {
           context: context,
           barrierDismissible: false,
           builder: (context) => AlertDialog(
-            title: const Text('Welcome to Ojo!'),
+            title: const Text('Welcome to ojo!'),
             content: const Text(
-              'Ojo helps you take care of your eyes by reminding you to take breaks. '
-              'Every 20 minutes, you\'ll get a 20-second break to look at something 20 feet away. '
+              'ojo helps you take care of your eyes by reminding you to take breaks.\n\n'
+              'Every 20 minutes, you\'ll get a 20-second break to look at something 20 feet away.\n\n'
               'This is known as the 20-20-20 rule and helps reduce eye strain.',
             ),
             actions: [
@@ -44,12 +43,15 @@ class _TimerScreenState extends State<TimerScreen> {
                 onPressed: () {
                   context.read<TimerProvider>().setFirstTimeComplete();
                   Navigator.of(context).pop();
+                  _startTimer();
                 },
                 child: const Text('Let\'s get started!'),
               ),
             ],
           ),
         );
+      } else {
+        _startTimer();
       }
     });
   }
@@ -98,8 +100,14 @@ class _TimerScreenState extends State<TimerScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
                         foregroundColor: Theme.of(context).colorScheme.secondaryContainer,
+                        minimumSize: const Size(200, 75),
                       ),
-                      child: const Text('Start Work'),
+                      child: const Text('Start Work',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     )
                   else if (timerProvider.state == TimerState.rest)
                     ElevatedButton(
@@ -107,8 +115,14 @@ class _TimerScreenState extends State<TimerScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
                         foregroundColor: Theme.of(context).colorScheme.secondaryContainer,
+                        minimumSize: const Size(200, 75),
                       ),
-                      child: const Text('Start Work Now'),
+                      child: const Text('Start Work Now',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     )
                   else if (timerProvider.state == TimerState.workComplete)
                     ElevatedButton(
@@ -116,8 +130,14 @@ class _TimerScreenState extends State<TimerScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
                         foregroundColor: Theme.of(context).colorScheme.primaryContainer,
+                        minimumSize: const Size(200, 75),
                       ),
-                      child: const Text('Start Break'),
+                      child: const Text('Start Break',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     )
                   else if (timerProvider.state == TimerState.work)
                     ElevatedButton(
@@ -125,8 +145,14 @@ class _TimerScreenState extends State<TimerScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
                         foregroundColor: Theme.of(context).colorScheme.primaryContainer,
+                        minimumSize: const Size(200, 75),
                       ),
-                      child: const Text('Start Break Now'),
+                      child: const Text('Start Break Now',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                 ],
               ),
@@ -144,7 +170,7 @@ class _TimerScreenState extends State<TimerScreen> {
       case TimerState.workComplete:
         return 'Time for a break!';
       case TimerState.rest:
-        return 'Look at something 20 feet away';
+        return 'Look at something\n 20 feet away';
       case TimerState.ready:
         return 'Ready to work again?';
     }

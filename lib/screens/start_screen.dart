@@ -63,6 +63,7 @@ class _StartScreenState extends State<StartScreen> {
                     style: OutlinedButton.styleFrom(
                       backgroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
                       foregroundColor: Theme.of(context).colorScheme.primaryContainer,
+                      minimumSize: const Size(200, 75),
                     ),
                     child: Text('Start', style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Theme.of(context).colorScheme.primaryContainer),),
                     onPressed: () {
