@@ -17,6 +17,7 @@ dependencies:
   flex_color_scheme: ^8.1.1
   provider: ^6.1.2
   rive: ^0.13.20
+  url_launcher: ^6.2.5
 
 dev_dependencies:
   flutter_test:

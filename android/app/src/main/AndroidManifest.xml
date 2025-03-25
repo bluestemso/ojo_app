@@ -42,4 +42,17 @@
             <data android:mimeType="text/plain"/>
         </intent>
     </queries>
+    <!-- Add this queries element before the closing </manifest> tag -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="market" />
+        </intent>
+    </queries>
 </manifest>

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/timer_provider.dart';
+import 'settings_screen.dart';
 
 class TimerScreen extends StatefulWidget {
   const TimerScreen({super.key});
@@ -70,6 +71,26 @@ class _TimerScreenState extends State<TimerScreen> {
           backgroundColor: timerProvider.state == TimerState.work || timerProvider.state == TimerState.workComplete
               ? Theme.of(context).colorScheme.primaryContainer
               : Theme.of(context).colorScheme.secondaryContainer,
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            actions: [
+              IconButton(
+                icon: Icon(
+                  Icons.settings,
+                  color: timerProvider.state == TimerState.work || timerProvider.state == TimerState.workComplete
+                      ? Theme.of(context).colorScheme.onPrimaryContainer
+                      : Theme.of(context).colorScheme.onSecondaryContainer,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                  );
+                },
+              ),
+            ],
+          ),
           body: SafeArea(
             child: Center(
               child: Column(
