@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:ojo_app/screens/timer_screen.dart';
 import 'package:ojo_app/providers/timer_provider.dart';
 import 'package:rive/rive.dart' as rive;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'settings_screen.dart';
 
 class StartScreen extends StatefulWidget {
@@ -29,6 +30,7 @@ class _StartScreenState extends State<StartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primaryContainer,
       appBar: AppBar(
@@ -61,9 +63,9 @@ class _StartScreenState extends State<StartScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('ojo', style: Theme.of(context).textTheme.displayLarge?.copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer),),
+                  Text(l10n.ojo, style: Theme.of(context).textTheme.displayLarge?.copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer),),
                   const SizedBox(height: 20),
-                  Text('take care of your eyes', style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer),),
+                  Text(l10n.takeCareOfYourEyes, style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer),),
                   const SizedBox(height: 20),
                   Container(
                     width: 150,
@@ -81,7 +83,7 @@ class _StartScreenState extends State<StartScreen> {
                       foregroundColor: Theme.of(context).colorScheme.primaryContainer,
                       minimumSize: const Size(200, 75),
                     ),
-                    child: Text('Start', style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Theme.of(context).colorScheme.primaryContainer),),
+                    child: Text(l10n.start, style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Theme.of(context).colorScheme.primaryContainer),),
                     onPressed: () {
                       context.read<TimerProvider>().startWork();
                       Navigator.push(

@@ -1,0 +1,22 @@
+{
+    "appTitle": "Temporizador de Descanso Visual",
+    "ojo": "ojo",
+    "takeCareOfYourEyes": "cuida tus ojos",
+    "start": "Comenzar",
+    "settings": "Ajustes",
+    "provideFeedback": "Dar Retroalimentación",
+    "rateOnPlayStore": "Califícanos en Play Store",
+    "welcomeToOjo": "¡Bienvenido a ojo!",
+    "welcomeMessage": "ojo te ayuda a cuidar tus ojos recordándote tomar descansos.\n\nCada 20 minutos, tendrás un descanso de 20 segundos para mirar algo a {distance} de distancia.\n\nEsto se conoce como la regla 20-20-20 y ayuda a reducir la fatiga visual.",
+    "letsGetStarted": "¡Empecemos!",
+    "timeToFocus": "Tiempo de concentrarse",
+    "timeForBreak": "¡Tiempo de descanso!",
+    "lookAwayMessage": "Mira algo a\n{distance} de distancia",
+    "readyToWork": "¿Listo para trabajar de nuevo?",
+    "startWork": "Comenzar Trabajo",
+    "startWorkNow": "Comenzar Trabajo Ahora",
+    "startBreak": "Comenzar Descanso",
+    "startBreakNow": "Comenzar Descanso Ahora",
+    "metricDistance": "6 metros",
+    "imperialDistance": "20 pies"
+} 

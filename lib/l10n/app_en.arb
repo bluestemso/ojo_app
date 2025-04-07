@@ -1,0 +1,87 @@
+{
+    "appTitle": "Eye Rest Timer",
+    "@appTitle": {
+        "description": "The title of the application"
+    },
+    "ojo": "ojo",
+    "@ojo": {
+        "description": "App name"
+    },
+    "takeCareOfYourEyes": "take care of your eyes",
+    "@takeCareOfYourEyes": {
+        "description": "Tagline under app name"
+    },
+    "start": "Start",
+    "@start": {
+        "description": "Start button text"
+    },
+    "settings": "Settings",
+    "@settings": {
+        "description": "Settings screen title"
+    },
+    "provideFeedback": "Provide Feedback",
+    "@provideFeedback": {
+        "description": "Feedback button text"
+    },
+    "rateOnPlayStore": "Rate us on the Play Store",
+    "@rateOnPlayStore": {
+        "description": "Play store rating subtitle"
+    },
+    "welcomeToOjo": "Welcome to ojo!",
+    "@welcomeToOjo": {
+        "description": "Welcome dialog title"
+    },
+    "welcomeMessage": "ojo helps you take care of your eyes by reminding you to take breaks.\n\nEvery 20 minutes, you'll get a 20-second break to look at something 20 feet away.\n\nThis is known as the 20-20-20 rule and helps reduce eye strain.",
+    "@welcomeMessage": {
+        "description": "Welcome dialog content"
+    },
+    "letsGetStarted": "Let's get started!",
+    "@letsGetStarted": {
+        "description": "Welcome dialog button"
+    },
+    "timeToFocus": "Time to focus",
+    "@timeToFocus": {
+        "description": "Work state message"
+    },
+    "timeForBreak": "Time for a break!",
+    "@timeForBreak": {
+        "description": "Break state message"
+    },
+    "lookAwayMessage": "Look at something\n{distance} away",
+    "@lookAwayMessage": {
+        "description": "Rest state message with distance",
+        "placeholders": {
+            "distance": {
+                "type": "String"
+            }
+        }
+    },
+    "readyToWork": "Ready to work again?",
+    "@readyToWork": {
+        "description": "Ready state message"
+    },
+    "startWork": "Start Work",
+    "@startWork": {
+        "description": "Start work button text"
+    },
+    "startWorkNow": "Start Work Now",
+    "@startWorkNow": {
+        "description": "Start work now button text"
+    },
+    "startBreak": "Start Break",
+    "@startBreak": {
+        "description": "Start break button text"
+    },
+    "startBreakNow": "Start Break Now",
+    "@startBreakNow": {
+        "description": "Start break now button text"
+    },
+    "metricDistance": "6 meters",
+    "@metricDistance": {
+        "description": "Distance in metric"
+    },
+    "imperialDistance": "20 feet",
+    "@imperialDistance": {
+        "description": "Distance in imperial"
+    }
+} 

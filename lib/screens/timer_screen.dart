@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/timer_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'settings_screen.dart';
 
 class TimerScreen extends StatefulWidget {
@@ -29,15 +30,16 @@ class _TimerScreenState extends State<TimerScreen> {
   void _showFirstTimeModal() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (context.read<TimerProvider>().isFirstTime) {
+        final l10n = AppLocalizations.of(context)!;
+        final bool useMetric = Localizations.localeOf(context).countryCode != 'US';
+        final String distance = useMetric ? l10n.metricDistance : l10n.imperialDistance;
         showDialog(
           context: context,
           barrierDismissible: false,
           builder: (context) => AlertDialog(
-            title: const Text('Welcome to ojo!'),
-            content: const Text(
-              'ojo helps you take care of your eyes by reminding you to take breaks.\n\n'
-              'Every 20 minutes, you\'ll get a 20-second break to look at something 20 feet away.\n\n'
-              'This is known as the 20-20-20 rule and helps reduce eye strain.',
+            title: Text(l10n.welcomeToOjo),
+            content: Text(
+              l10n.welcomeMessage(distance),
             ),
             actions: [
               TextButton(
@@ -46,7 +48,7 @@ class _TimerScreenState extends State<TimerScreen> {
                   Navigator.of(context).pop();
                   _startTimer();
                 },
-                child: const Text('Let\'s get started!'),
+                child: Text(l10n.letsGetStarted),
               ),
             ],
           ),
@@ -65,6 +67,7 @@ class _TimerScreenState extends State<TimerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Consumer<TimerProvider>(
       builder: (context, timerProvider, child) {
         return Scaffold(
@@ -123,8 +126,8 @@ class _TimerScreenState extends State<TimerScreen> {
                         foregroundColor: Theme.of(context).colorScheme.secondaryContainer,
                         minimumSize: const Size(200, 75),
                       ),
-                      child: const Text('Start Work',
-                        style: TextStyle(
+                      child: Text(l10n.startWork,
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -138,8 +141,8 @@ class _TimerScreenState extends State<TimerScreen> {
                         foregroundColor: Theme.of(context).colorScheme.secondaryContainer,
                         minimumSize: const Size(200, 75),
                       ),
-                      child: const Text('Start Work Now',
-                        style: TextStyle(
+                      child: Text(l10n.startWorkNow,
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -153,8 +156,8 @@ class _TimerScreenState extends State<TimerScreen> {
                         foregroundColor: Theme.of(context).colorScheme.primaryContainer,
                         minimumSize: const Size(200, 75),
                       ),
-                      child: const Text('Start Break',
-                        style: TextStyle(
+                      child: Text(l10n.startBreak,
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -168,8 +171,8 @@ class _TimerScreenState extends State<TimerScreen> {
                         foregroundColor: Theme.of(context).colorScheme.primaryContainer,
                         minimumSize: const Size(200, 75),
                       ),
-                      child: const Text('Start Break Now',
-                        style: TextStyle(
+                      child: Text(l10n.startBreakNow,
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -185,15 +188,19 @@ class _TimerScreenState extends State<TimerScreen> {
   }
 
   String _getStatusText(TimerState state) {
+    final l10n = AppLocalizations.of(context)!;
+    final bool useMetric = Localizations.localeOf(context).countryCode != 'US';
+    final String distance = useMetric ? l10n.metricDistance : l10n.imperialDistance;
+    
     switch (state) {
       case TimerState.work:
-        return 'Time to focus';
+        return l10n.timeToFocus;
       case TimerState.workComplete:
-        return 'Time for a break!';
+        return l10n.timeForBreak;
       case TimerState.rest:
-        return 'Look at something\n 20 feet away';
+        return l10n.lookAwayMessage(distance);
       case TimerState.ready:
-        return 'Ready to work again?';
+        return l10n.readyToWork;
     }
   }
 }

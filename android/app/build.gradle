@@ -36,9 +36,9 @@ android {
         // Target latest SDK version
         targetSdkVersion 34
         // Version code (must be incremented with each update)
-        versionCode 3
+        versionCode 4
         // Version name (what users see)
-        versionName "1.0.3"
+        versionName "1.0.2"
     }
 
     signingConfigs {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'dart:io' show Platform;
 
 class SettingsScreen extends StatelessWidget {
@@ -33,16 +34,17 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(l10n.settings),
       ),
       body: ListView(
         children: [
           ListTile(
             leading: const Icon(Icons.feedback_outlined),
-            title: const Text('Provide Feedback'),
-            subtitle: const Text('Rate us on the Play Store'),
+            title: Text(l10n.provideFeedback),
+            subtitle: Text(l10n.rateOnPlayStore),
             onTap: _launchPlayStore,
           ),
         ],
