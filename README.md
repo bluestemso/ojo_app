@@ -1,21 +1,204 @@
-# ojo: your eyes deserve a break
+# ojo: your eyes deserve a break 👁️
 
-Ojo is a simple app to help computer jockeys take better care of their eyes.  For those working on a screen for hours at a time, experts recommend taking a 20 second break every 20 minutes to look at an object 20 feet away.  While 20-20-20 is easy enough to remember, it's easy to lose track of time when you find your flow.  Ojo aims to be a gentle reminder to give your eyes a break.
+A cross-platform mobile app that helps computer users practice the **20-20-20 rule** to reduce eye strain and promote eye health.
+
+## What is the 20-20-20 Rule?
+
+Eye health experts recommend that for every **20 minutes** of screen time, you should:
+- Take a **20 second** break
+- Look at something **20 feet** (6 meters) away
+
+While 20-20-20 is easy to remember, it's easy to lose track of time when you're in the flow. **ojo** provides gentle reminders to give your eyes the break they deserve.
+
+## Features
+
+- ⏱️ **Dual Timer System** - 20-minute work periods and 20-second rest breaks
+- 🔔 **Audio Alerts** - Gentle alarm sounds when timers complete
+- 🎨 **Dynamic Theming** - Visual theme changes between work and rest modes
+- 🌍 **Multi-language Support** - Currently supports English and Spanish
+- 📱 **Cross-platform** - Built with Flutter for Android, iOS, Web, Windows, and macOS
+- ✨ **Smooth Animations** - Eye-catching animations powered by Rive
+
+## Screenshots
+
+![ojo App](assets/Screenshots/screenshot1.png)
+
+## Getting Started
+
+### Prerequisites
+
+- [Flutter](https://flutter.dev/docs/get-started/install) (SDK ^3.6.1)
+- Dart SDK (comes with Flutter)
+- For Android: Android Studio / Android SDK
+- For iOS: Xcode (macOS only)
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/bluestemso/ojo_app.git
+cd ojo_app
+```
+
+2. Install dependencies:
+```bash
+flutter pub get
+```
+
+3. Run the app:
+```bash
+flutter run
+```
+
+### Running on Specific Platforms
+
+```bash
+# Android
+flutter run -d android
+
+# iOS
+flutter run -d ios
+
+# Web
+flutter run -d chrome
+
+# Windows
+flutter run -d windows
+
+# macOS
+flutter run -d macos
+```
+
+## Building for Release
+
+### Android
+
+```bash
+# Build APK
+flutter build apk --release
+
+# Build App Bundle (for Play Store)
+flutter build appbundle --release
+```
+
+### iOS
+
+```bash
+flutter build ios --release
+```
+
+### Web
+
+```bash
+flutter build web --release
+```
+
+## How It Works
+
+### User Flow
+
+1. **Start Screen** - User is greeted by an animated eye and a "Start" button
+2. **First-Time Users** - A modal explains the 20-20-20 rule (dismissible)
+3. **Work Period** - 20-minute timer with dark theme, showing countdown
+4. **Work Complete** - Alarm plays, light theme returns, "Start Rest" button appears
+5. **Rest Period** - 20-second timer, encouraging you to look away
+6. **Ready to Work** - Alarm plays, "Start Work" button ready for next cycle
+
+### Timer States
+
+```
+work (20 min) → workComplete → rest (20 sec) → ready → work (repeat)
+```
 
 ## Tech Stack
 
-ojo is built with Flutter.
+### Framework
+- **Flutter** - UI framework
+- **Dart** - Programming language
+- **Material Design 3** - Design system
 
- ### Flutter Packages
-  - Provider
-  - Flex Color Scheme
-  - Rive Runtime
+### Key Packages
+- **provider** (^6.1.2) - State management
+- **flex_color_scheme** (^8.1.1) - Advanced theming
+- **rive** (^0.13.20) - Vector animations
+- **audioplayers** (^5.2.1) - Audio playback
+- **url_launcher** (^6.2.5) - External link support
+- **flutter_localizations** - Internationalization
 
+## Project Structure
 
-## Features & Functionality
+```
+lib/
+├── main.dart                  # App entry point
+├── flex_theme.dart            # Theme configuration
+├── providers/
+│   └── timer_provider.dart    # State management
+├── screens/
+│   ├── start_screen.dart      # Welcome screen
+│   ├── timer_screen.dart      # Main timer UI
+│   └── settings_screen.dart   # App settings
+└── l10n/                      # Localization files
+    ├── app_en.arb            # English
+    └── app_es.arb            # Spanish
+```
 
-User is greeted by a start screen when the app opens.  When user clicks on the "Start" button, she is taken to the timer screen.  
+## Development
 
-If this is the first time the user has opened the app, she is shown a modal that explains how the app works.  The modal can be dismissed by either clicking/tapping outside of it or dismissing it with a "Let's get started" button.
+### Code Style
 
-Otherwise, the app begins the "work period" timer.  The app transitions to a dark color scheme during the "work period" timer.  This timer lasts for 20 minutes.  The amount of time left is displayed on the screen in minutes.  When the timer expires, the alarm.mp3 asset is played, the screen displays text indicating that it is time to rest along with a button to "Start Rest", and the app transitions back to a light color scheme.  Once the "Start Rest" button is pressed, a 20 second timer begins.  When that timer expires, the alarm.mps asset is played, and the screen displays text asking the user if she is ready to start working again along wit a button to "Start Work".  When the user presses "Start Work", the "work period" timer actions start over again.
+This project follows Flutter's recommended linting rules:
+
+```bash
+# Analyze code
+flutter analyze
+
+# Format code
+flutter format .
+```
+
+### Testing
+
+```bash
+# Run all tests
+flutter test
+
+# Run with coverage
+flutter test --coverage
+```
+
+### Adding Translations
+
+1. Edit the appropriate `.arb` file in `lib/l10n/`
+2. Run the Flutter code generation:
+```bash
+flutter pub get
+```
+3. The localization code is auto-generated
+
+## Version
+
+**Current Version:** 1.0.2 (build 4)
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is part of Bluestem Solutions.
+
+## Support
+
+Found a bug or have a feature request? Please [open an issue](https://github.com/bluestemso/ojo_app/issues).
+
+Want to rate the app? Find us on the [Google Play Store](https://play.google.com/store/apps/details?id=solutions.bluestem.ojo202020).
+
+## Acknowledgments
+
+- Eye health guidelines based on recommendations from optometry professionals
+- Built with ❤️ using Flutter
+- Special thanks to the Flutter community for excellent packages
+
+---
+
+**Remember:** Your eyes deserve a break. Take care of them! 👁️✨
